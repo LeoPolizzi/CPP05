@@ -27,16 +27,20 @@ int main() {
 	Form *shrubbery = intern.makeForm("shrubbery creation", "target3");
 
     std::cout << "\n--- Signing Forms ---\n" << std::endl;
-    lowRank.signForm(pardon);
-    midRank.signForm(robotomy);
-    highRank.signForm(shrubbery);
+    lowRank.signForm(*pardon);
+    midRank.signForm(*robotomy);
+    highRank.signForm(*shrubbery);
 
     std::cout << "\n--- Executing Forms ---\n" << std::endl;
-    lowRank.executeForm(pardon);
-    midRank.executeForm(robotomy);
-    highRank.executeForm(shrubbery);
+    lowRank.executeForm(*pardon);
+    midRank.executeForm(*robotomy);
+    highRank.executeForm(*shrubbery);
 
 	std::cout << "\n--- Destruction ---\n" << std::endl;
+
+	delete pardon;
+	delete robotomy;
+	delete shrubbery;
 
     return 0;
 }

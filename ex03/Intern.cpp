@@ -60,7 +60,7 @@ Form *Intern::makeForm(std::string formName, std::string target)
 	{
 		for (int i = 0; i < 3; i++)
 		{
-			if (formName == Names[i])
+			if (formName == names[i])
 			{
 				form = (this->*formCreators[i])(target);
 				std::cout << "Intern creates " << formName << std::endl;
@@ -72,6 +72,7 @@ Form *Intern::makeForm(std::string formName, std::string target)
 	{
 		std::cerr << e.what() << formName << std::endl;
 	}
+	return (NULL);
 }
 
 const char *Intern::FormNotFoundException::what() const throw()
